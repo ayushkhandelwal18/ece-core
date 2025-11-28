@@ -28,6 +28,10 @@ gauss = (1/(sigma*sqrt(2*%pi))) * exp(-((x-mu).^2)/(2*sigma^2));  // gaussian pd
 n2 = -10:10;                  
 impulse = double(n2 == 0);    // impulse signal (δ[n])
 
+// Exponential Signal
+t_exp = 0:0.01:5;
+a = 1;                        
+exp_sig = exp(a * t_exp);    
 
 figure();
 
@@ -78,4 +82,10 @@ subplot(3,3,7);
 plot2d3(n2, impulse');      
 title("Impulse Signal δ[n]");
 xlabel("n"); ylabel("δ[n]");
+xgrid();
+
+subplot(3,3,8);
+plot(t_exp, exp_sig);
+title("Exponential Signal e^{at}");
+xlabel("t"); ylabel("Amplitude");
 xgrid();
